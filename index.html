@@ -15,19 +15,19 @@
 
         <div class="mx-10 lg:mx-36 mt-14 choice-board ">
             <div class="info-board font-[Poppins] bg-blue-500 text-white p-6 rounded-lg flex justify-around items-center text-2xl font-semibold shadow-lg">
-                <div class="user">User</div>
+                <div class="player">Player</div>
                 <div class="text">vs</div>
                 <div class="computer">Komputer</div>
             </div>
             <div class="play-board bg-red-400 flex h-80 gap-2 rounded-xl border-4 border-white">
-                <div class="show-user-choice w-[50%] flex justify-center items-center p-10 rounded-full">
+                <div class="show-player-choice w-[50%] flex justify-center items-center p-10 rounded-full">
                     <div class="gunting w-40 h-40 rounded-full border-4 border-white bg-green-500 cursor-pointer">
-                        <img src="img/tanya.png" alt="" class="w-40 h-40">
+                        <img id="player-choice-img" src="img/tanya.png" alt="" class="w-40 h-40">
                     </div>
                 </div>
                 <div class="show-computer-choice w-[50%] flex justify-center items-center p-10 rounded-full">
                     <div class="gunting w-40 h-40 rounded-full border-4 border-white bg-yellow-500 cursor-pointer">
-                        <img src="img/tanya.png" alt="" class="box-border">
+                        <img id="computer-choice-img" src="img/tanya.png" alt="" class="box-border">
                     </div>
                 </div>
             </div>
@@ -40,18 +40,20 @@
             </div>
             <div class=" p-6 flex gap-4 bg-red-400 rounded-3xl ">
                 <div class="gunting w-24 h-24 rounded-full border-4 border-white bg-green-500 hover:bg-green-700 transition-colors cursor-pointer">
-                    <img src="img/gunting.png" alt="" >
+                    <img src="img/gunting.png" alt="" id="gunting" >
                 </div>
                 <div class="batu w-24 h-24 rounded-full border-4 border-white bg-blue-500 hover:bg-blue-700 transition-colors cursor-pointer">
-                    <img src="img/batu.png" alt="" >
+                    <img src="img/batu.png" alt="" id="batu">
                 </div>
                 <div class="kertas w-24 h-24 rounded-full border-4 border-white bg-yellow-500 hover:bg-yellow-700 transition-colors cursor-pointer">
-                    <img src="img/kertas.png" alt="" >
+                    <img src="img/kertas.png" alt="" id="kertas">
                 </div>
             </div>
         </div>
     </div>
     
+
+    <script src="script.js"></script>
     
 </body>
 </html>
