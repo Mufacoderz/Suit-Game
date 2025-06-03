@@ -38,6 +38,13 @@ function resetImgChoice(){
     computerChoice.setAttribute('src', 'img/tanya.png')
 }
 
+function resetGame(){
+    teksPlayerScore.textContent ='Player : 0'
+    teksComputerScore.textContent ='Computer : 0'
+    boardMenang.classList.add('hidden')
+    boardKalah.classList.add('hidden')
+    resetImgChoice()
+}
 
 
 function playGame(choice){
@@ -61,10 +68,10 @@ function playGame(choice){
     }
 
      
-    if(playerScore == 10){
+    if(playerScore == 5){
         boardMenang.classList.remove('hidden')
     }
-    if(computerScore == 10){
+    if(computerScore == 5){
         boardKalah.classList.remove('hidden')
     }
 
