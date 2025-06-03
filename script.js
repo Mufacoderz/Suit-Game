@@ -39,6 +39,8 @@ function resetImgChoice(){
 }
 
 function resetGame(){
+    playerScore = 0    
+    computerScore = 0
     teksPlayerScore.textContent ='Player : 0'
     teksComputerScore.textContent ='Computer : 0'
     boardMenang.classList.add('hidden')
