@@ -49,34 +49,53 @@ function resetGame(){
 }
 
 
+function putar(callback){
+    const gambar = ['gunting', 'batu', 'kertas'];
+    let i = 0;
+    const waktuMulai = new Date().getTime();
+    
+    const intervalId = setInterval(function(){
+        if(new Date().getTime() - waktuMulai > 1000){
+            clearInterval(intervalId);
+            if(callback) callback(); // Panggil callback setelah animasi selesai
+            return;
+        }
+        computerChoice.setAttribute('src', `img/${gambar[i++]}.png`);
+        if(i === gambar.length) i = 0;
+    }, 100);
+}
+
+
+
+
 function playGame(choice){
     // namppilkan img pilihan player
     playerChoice.setAttribute('src', `img/${choice}.png`)
     
-    //ambil pilihan kompuetr
-    const bot = getComputerChoice()
-    computerChoice.setAttribute('src', `img/${bot}.png`)
-
-    //resultnya
-    const result = getResult(bot, choice)
-  
-    if(result == 'Menang'){
-        playerScore++
-        teksPlayerScore.textContent =`Player : ${playerScore}`
-    }
-    if(result == 'Kalah'){
-        computerScore++
-        teksComputerScore.textContent = `Computer : ${computerScore}`
-    }
-
-     
-    if(playerScore == 5){
-        boardMenang.classList.remove('hidden')
-    }
-    if(computerScore == 5){
-        boardKalah.classList.remove('hidden')
-    }
-
+    putar(() => {
+        //ambil pilihan bot
+        const bot = getComputerChoice();
+        computerChoice.setAttribute('src', `img/${bot}.png`);
+    
+        //result
+        const result = getResult(bot, choice);
+    
+        if(result == 'Menang'){
+            playerScore++;
+            teksPlayerScore.textContent = `Player : ${playerScore}`;
+        }
+        if(result == 'Kalah'){
+            computerScore++;
+            teksComputerScore.textContent = `Computer : ${computerScore}`;
+        }
+        //board menag kalah
+        if(playerScore == 5){
+            boardMenang.classList.remove('hidden');
+        }
+        if(computerScore == 5){
+            boardKalah.classList.remove('hidden');
+        }
+    });
 
   
 
