@@ -7,6 +7,14 @@ const teksPlayerScore = document.getElementById('player-score')
 const teksComputerScore = document.getElementById('computer-score')
 const boardMenang = document.querySelector('.board-menang')
 const boardKalah = document.querySelector('.board-kalah')
+const soundWin = document.getElementById('sound-win');
+const soundLose = document.getElementById('sound-lose');
+
+soundWin.volume = 1;
+soundLose.volume = 1;
+soundWin.load();
+soundLose.load();
+
 
 let playerScore = 0
 let computerScore = 0
@@ -91,9 +99,11 @@ function playGame(choice){
         //board menag kalah
         if(playerScore == 5){
             boardMenang.classList.remove('hidden');
+            soundWin.play();
         }
         if(computerScore == 5){
             boardKalah.classList.remove('hidden');
+            soundLose.play()
         }
     });
 
