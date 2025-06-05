@@ -49,8 +49,8 @@ function resetImgChoice(){
 function resetGame(){
     playerScore = 0    
     computerScore = 0
-    teksPlayerScore.textContent ='Player : 0'
-    teksComputerScore.textContent ='Computer : 0'
+    teksPlayerScore.textContent ='0'
+    teksComputerScore.textContent ='0'
     boardMenang.classList.add('hidden')
     boardKalah.classList.add('hidden')
     resetImgChoice()
@@ -65,12 +65,12 @@ function putar(callback){
     const intervalId = setInterval(function(){
         if(new Date().getTime() - waktuMulai > 1000){
             clearInterval(intervalId);
-            if(callback) callback(); // Panggil callback setelah animasi selesai
+            if(callback) callback(); 
             return;
         }
         computerChoice.setAttribute('src', `img/${gambar[i++]}.png`);
         if(i === gambar.length) i = 0;
-    }, 100);
+    }, 150);
 }
 
 
@@ -90,11 +90,11 @@ function playGame(choice){
     
         if(result == 'Menang'){
             playerScore++;
-            teksPlayerScore.textContent = `Player : ${playerScore}`;
+            teksPlayerScore.textContent = playerScore;
         }
         if(result == 'Kalah'){
             computerScore++;
-            teksComputerScore.textContent = `Computer : ${computerScore}`;
+            teksComputerScore.textContent = computerScore;
         }
         //board menag kalah
         if(playerScore == 5){
